@@ -56,6 +56,7 @@ class PermissionExecutor implements PermissionExecutorInterface
             return false;
         }
 
+        // @phpstan-ignore instanceof.alwaysTrue (Defensive check for open-source framework safety)
         if (!($permissionPlugin instanceof ExecutablePermissionPluginInterface)) {
             return true;
         }

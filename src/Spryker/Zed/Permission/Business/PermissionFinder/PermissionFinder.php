@@ -100,6 +100,7 @@ class PermissionFinder implements PermissionFinderInterface
             $permissionTransfer = (new PermissionTransfer())
                 ->setKey($permissionPlugin->getKey());
 
+            // @phpstan-ignore instanceof.alwaysTrue (Defensive check for open-source framework safety)
             if ($permissionPlugin instanceof ExecutablePermissionPluginInterface) {
                 $permissionTransfer->setConfigurationSignature($permissionPlugin->getConfigurationSignature());
             }
