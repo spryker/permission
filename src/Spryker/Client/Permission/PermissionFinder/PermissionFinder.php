@@ -41,9 +41,6 @@ class PermissionFinder implements PermissionFinderInterface
         return $this->permissionPlugins[$permissionKey];
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\PermissionCollectionTransfer
-     */
     public function getRegisteredPermissionCollection(): PermissionCollectionTransfer
     {
         $permissionCollectionTransfer = new PermissionCollectionTransfer();

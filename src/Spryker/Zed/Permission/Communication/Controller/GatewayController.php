@@ -16,17 +16,11 @@ use Spryker\Zed\Kernel\Communication\Controller\AbstractGatewayController;
  */
 class GatewayController extends AbstractGatewayController
 {
-    /**
-     * @return \Generated\Shared\Transfer\PermissionCollectionTransfer
-     */
     public function findAllAction(): PermissionCollectionTransfer
     {
         return $this->getFacade()->findAll();
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\PermissionCollectionTransfer
-     */
     public function findMergedRegisteredNonInfrastructuralPermissionsAction(): PermissionCollectionTransfer
     {
         return $this->getFacade()->findMergedRegisteredNonInfrastructuralPermissions();

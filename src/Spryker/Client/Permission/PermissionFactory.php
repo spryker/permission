@@ -18,9 +18,6 @@ use Spryker\Client\Permission\Zed\PermissionStubInterface;
 
 class PermissionFactory extends AbstractFactory
 {
-    /**
-     * @return \Spryker\Client\Permission\PermissionFinder\PermissionFinderInterface
-     */
     public function createPermissionFinder(): PermissionFinderInterface
     {
         return new PermissionFinder(
@@ -28,9 +25,6 @@ class PermissionFactory extends AbstractFactory
         );
     }
 
-    /**
-     * @return \Spryker\Client\Permission\PermissionExecutor\PermissionExecutorInterface
-     */
     public function createPermissionExecutor(): PermissionExecutorInterface
     {
         return new PermissionExecutor(
@@ -39,9 +33,6 @@ class PermissionFactory extends AbstractFactory
         );
     }
 
-    /**
-     * @return \Spryker\Client\Permission\Zed\PermissionStubInterface
-     */
     public function createZedPermissionStub(): PermissionStubInterface
     {
         return new PermissionStub($this->getZedRequestClient());
@@ -63,9 +54,6 @@ class PermissionFactory extends AbstractFactory
         return $this->getProvidedDependency(PermissionDependencyProvider::PLUGINS_PERMISSION_STORAGE);
     }
 
-    /**
-     * @return \Spryker\Client\Permission\Dependency\Client\PermissionToZedRequestClientInterface
-     */
     protected function getZedRequestClient(): PermissionToZedRequestClientInterface
     {
         return $this->getProvidedDependency(PermissionDependencyProvider::CLIENT_ZED_REQUEST);

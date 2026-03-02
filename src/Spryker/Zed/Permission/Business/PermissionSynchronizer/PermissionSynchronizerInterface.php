@@ -9,8 +9,5 @@ namespace Spryker\Zed\Permission\Business\PermissionSynchronizer;
 
 interface PermissionSynchronizerInterface
 {
-    /**
-     * @return void
-     */
     public function sync(): void;
 }

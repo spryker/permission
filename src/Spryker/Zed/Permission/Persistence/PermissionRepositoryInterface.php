@@ -12,15 +12,7 @@ use Generated\Shared\Transfer\PermissionTransfer;
 
 interface PermissionRepositoryInterface
 {
-    /**
-     * @return \Generated\Shared\Transfer\PermissionCollectionTransfer
-     */
     public function findAll(): PermissionCollectionTransfer;
 
-    /**
-     * @param string $key
-     *
-     * @return \Generated\Shared\Transfer\PermissionTransfer|null
-     */
     public function findPermissionByKey(string $key): ?PermissionTransfer;
 }

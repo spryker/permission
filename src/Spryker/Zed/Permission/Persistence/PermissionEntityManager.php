@@ -16,11 +16,6 @@ use Spryker\Zed\Kernel\Persistence\AbstractEntityManager;
  */
 class PermissionEntityManager extends AbstractEntityManager implements PermissionEntityManagerInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\PermissionCollectionTransfer $permissionCollectionTransfer
-     *
-     * @return \Generated\Shared\Transfer\PermissionCollectionTransfer
-     */
     public function upsertPermissionCollection(PermissionCollectionTransfer $permissionCollectionTransfer): PermissionCollectionTransfer
     {
         foreach ($permissionCollectionTransfer->getPermissions() as $permissionTransfer) {
@@ -30,11 +25,6 @@ class PermissionEntityManager extends AbstractEntityManager implements Permissio
         return $permissionCollectionTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PermissionTransfer $permissionTransfer
-     *
-     * @return \Generated\Shared\Transfer\PermissionTransfer
-     */
     public function upsertPermission(PermissionTransfer $permissionTransfer): PermissionTransfer
     {
         $permissionEntity = $this->getFactory()

@@ -134,11 +134,6 @@ class PermissionExecutor implements PermissionExecutorInterface
         return $permissionCollectionTransfer;
     }
 
-    /**
-     * @param string $permissionKey
-     *
-     * @return bool
-     */
     protected function hasPermissionCollectionTransferCacheByKey(string $permissionKey): bool
     {
         return isset(static::$permissionCollectionTransfersCache[$permissionKey]);
@@ -160,12 +155,6 @@ class PermissionExecutor implements PermissionExecutorInterface
         return static::$permissionCollectionTransfersCache[$permissionKey];
     }
 
-    /**
-     * @param string $permissionKey
-     * @param \Generated\Shared\Transfer\PermissionCollectionTransfer $permissionCollectionTransfer
-     *
-     * @return void
-     */
     protected function cachePermissionCollectionTransferByKey(string $permissionKey, PermissionCollectionTransfer $permissionCollectionTransfer): void
     {
         static::$permissionCollectionTransfersCache[$permissionKey] = $permissionCollectionTransfer;

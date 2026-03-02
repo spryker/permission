@@ -16,9 +16,6 @@ use Spryker\Zed\Kernel\Persistence\AbstractRepository;
  */
 class PermissionRepository extends AbstractRepository implements PermissionRepositoryInterface
 {
-    /**
-     * @return \Generated\Shared\Transfer\PermissionCollectionTransfer
-     */
     public function findAll(): PermissionCollectionTransfer
     {
         $permissionEntityCollection = $this->getFactory()
@@ -33,11 +30,6 @@ class PermissionRepository extends AbstractRepository implements PermissionRepos
             );
     }
 
-    /**
-     * @param string $key
-     *
-     * @return \Generated\Shared\Transfer\PermissionTransfer|null
-     */
     public function findPermissionByKey(string $key): ?PermissionTransfer
     {
         $permissionEntity = $this->getFactory()

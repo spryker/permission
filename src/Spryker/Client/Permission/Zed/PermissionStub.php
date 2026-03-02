@@ -17,17 +17,11 @@ class PermissionStub implements PermissionStubInterface
      */
     protected $zedRequestClient;
 
-    /**
-     * @param \Spryker\Client\Permission\Dependency\Client\PermissionToZedRequestClientInterface $zedRequestClient
-     */
     public function __construct(PermissionToZedRequestClientInterface $zedRequestClient)
     {
         $this->zedRequestClient = $zedRequestClient;
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\PermissionCollectionTransfer
-     */
     public function findAll(): PermissionCollectionTransfer
     {
         /** @var \Generated\Shared\Transfer\PermissionCollectionTransfer $permissionCollectionTransfer */
@@ -39,9 +33,6 @@ class PermissionStub implements PermissionStubInterface
         return $permissionCollectionTransfer;
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\PermissionCollectionTransfer
-     */
     public function findMergedRegisteredNonInfrastructuralPermissions(): PermissionCollectionTransfer
     {
         /** @var \Generated\Shared\Transfer\PermissionCollectionTransfer $permissionCollectionTransfer */

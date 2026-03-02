@@ -38,9 +38,6 @@ class PermissionFacadeTest extends Unit
      */
     protected $tester;
 
-    /**
-     * @return void
-     */
     public function testFindMergedRegisteredNonInfrastructuralPermissionsDoesNotReturnInfrastructuralPermissions(): void
     {
         //Assign
@@ -55,9 +52,6 @@ class PermissionFacadeTest extends Unit
         $this->assertFalse($this->hasInfrastructuralPermissions($registeredNonInfrastructuralPermissions));
     }
 
-    /**
-     * @return void
-     */
     public function testGetPermissionsByIdentifierShouldReturnPermissionsAssignedForCompanyUser(): void
     {
         //Assign
@@ -120,9 +114,6 @@ class PermissionFacadeTest extends Unit
         return $permissionStoragePluginStub;
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\PermissionCollectionTransfer
-     */
     protected function createPermissionCollectionTransfer(): PermissionCollectionTransfer
     {
         $permissionTransfer = (new PermissionTransfer())->setKey(static::PERMISSION_PLUGIN_KEY);
@@ -130,9 +121,6 @@ class PermissionFacadeTest extends Unit
         return (new PermissionCollectionTransfer())->addPermission($permissionTransfer);
     }
 
-    /**
-     * @return \Spryker\Zed\Permission\Business\PermissionFacadeInterface
-     */
     protected function getPermissionFacade(): PermissionFacadeInterface
     {
         return $this->tester->getFacade();

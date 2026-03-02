@@ -70,11 +70,6 @@ class PermissionFinder implements PermissionFinderInterface
         return $this->permissionPlugins[$permissionKey];
     }
 
-    /**
-     * @param string $identifier
-     *
-     * @return \Generated\Shared\Transfer\PermissionCollectionTransfer
-     */
     public function getPermissionsByIdentifier(string $identifier): PermissionCollectionTransfer
     {
         $permissionCollectionTransfer = new PermissionCollectionTransfer();
@@ -89,9 +84,6 @@ class PermissionFinder implements PermissionFinderInterface
         return $permissionCollectionTransfer;
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\PermissionCollectionTransfer
-     */
     public function getRegisteredPermissions(): PermissionCollectionTransfer
     {
         $permissionCollectionTransfer = new PermissionCollectionTransfer();
@@ -115,9 +107,6 @@ class PermissionFinder implements PermissionFinderInterface
         return $permissionCollectionTransfer;
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\PermissionCollectionTransfer
-     */
     public function findMergedRegisteredNonInfrastructuralPermissions(): PermissionCollectionTransfer
     {
         $registeredPermissions = $this->getIndexedMergedRegisteredNonInfrastructuralPermissions();

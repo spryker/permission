@@ -21,8 +21,5 @@ interface PermissionFinderInterface
      */
     public function findPermissionPlugin($permissionKey);
 
-    /**
-     * @return \Generated\Shared\Transfer\PermissionCollectionTransfer
-     */
     public function getRegisteredPermissionCollection(): PermissionCollectionTransfer;
 }

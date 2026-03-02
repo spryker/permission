@@ -11,13 +11,7 @@ use Generated\Shared\Transfer\PermissionCollectionTransfer;
 
 interface PermissionStubInterface
 {
-    /**
-     * @return \Generated\Shared\Transfer\PermissionCollectionTransfer
-     */
     public function findAll(): PermissionCollectionTransfer;
 
-    /**
-     * @return \Generated\Shared\Transfer\PermissionCollectionTransfer
-     */
     public function findMergedRegisteredNonInfrastructuralPermissions(): PermissionCollectionTransfer;
 }

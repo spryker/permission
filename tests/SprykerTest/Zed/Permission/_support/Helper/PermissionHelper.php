@@ -21,11 +21,6 @@ class PermissionHelper extends Module
     use DependencyHelperTrait;
     use LocatorHelperTrait;
 
-    /**
-     * @param \Spryker\Shared\PermissionExtension\Dependency\Plugin\PermissionPluginInterface $permissionPlugin
-     *
-     * @return \Generated\Shared\Transfer\PermissionTransfer
-     */
     public function havePermission(PermissionPluginInterface $permissionPlugin): PermissionTransfer
     {
         $this->syncPermission($permissionPlugin);
@@ -33,27 +28,16 @@ class PermissionHelper extends Module
         return $this->getPermissionFacade()->findPermissionByKey($permissionPlugin->getKey());
     }
 
-    /**
-     * @param string $permissionKey
-     *
-     * @return \Generated\Shared\Transfer\PermissionTransfer
-     */
     public function havePermissionByKey(string $permissionKey): PermissionTransfer
     {
         return $this->havePermission((new class ($permissionKey) implements PermissionPluginInterface {
             private string $permissionKey;
 
-            /**
-             * @param string $permissionKey
-             */
             public function __construct(string $permissionKey)
             {
                 $this->permissionKey = $permissionKey;
             }
 
-            /**
-             * @return string
-             */
             public function getKey(): string
             {
                 return $this->permissionKey;
@@ -61,21 +45,11 @@ class PermissionHelper extends Module
         }));
     }
 
-    /**
-     * @param \Spryker\Zed\PermissionExtension\Dependency\Plugin\PermissionStoragePluginInterface $permissionStoragePlugin
-     *
-     * @return void
-     */
     public function preparePermissionStorageDependency(PermissionStoragePluginInterface $permissionStoragePlugin): void
     {
         $this->setDependency(PermissionDependencyProvider::PLUGINS_PERMISSION_STORAGE, [$permissionStoragePlugin]);
     }
 
-    /**
-     * @param \Spryker\Shared\PermissionExtension\Dependency\Plugin\PermissionPluginInterface $permissionPlugin
-     *
-     * @return void
-     */
     protected function syncPermission(PermissionPluginInterface $permissionPlugin): void
     {
         $this->setDependency(PermissionDependencyProvider::PLUGINS_PERMISSION, [$permissionPlugin]);
@@ -83,9 +57,6 @@ class PermissionHelper extends Module
         $this->getPermissionFacade()->syncPermissionPlugins();
     }
 
-    /**
-     * @return \Spryker\Zed\Permission\Business\PermissionFacadeInterface
-     */
     protected function getPermissionFacade(): PermissionFacadeInterface
     {
         return $this->getLocator()->permission()->facade();

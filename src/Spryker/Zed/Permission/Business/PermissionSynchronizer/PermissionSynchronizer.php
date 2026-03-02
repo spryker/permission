@@ -29,11 +29,6 @@ class PermissionSynchronizer implements PermissionSynchronizerInterface
      */
     protected $permissionEntityManager;
 
-    /**
-     * @param \Spryker\Client\Permission\PermissionClientInterface $permissionClient
-     * @param \Spryker\Zed\Permission\Business\PermissionFinder\PermissionFinderInterface $permissionFinder
-     * @param \Spryker\Zed\Permission\Persistence\PermissionEntityManagerInterface $permissionEntityManager
-     */
     public function __construct(
         PermissionClientInterface $permissionClient,
         PermissionFinderInterface $permissionFinder,
@@ -44,9 +39,6 @@ class PermissionSynchronizer implements PermissionSynchronizerInterface
         $this->permissionEntityManager = $permissionEntityManager;
     }
 
-    /**
-     * @return void
-     */
     public function sync(): void
     {
         $permissionCollectionTransfer = new PermissionCollectionTransfer();
