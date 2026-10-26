@@ -23,6 +23,7 @@
     "autoload": {
         "psr-4": {
             "Spryker\\": "src/Spryker/",
+            "SprykerTest\\Client\\Permission\\Helper\\": "tests/SprykerTest/Client/Permission/_support/Helper/",
             "SprykerTest\\Zed\\Permission\\Helper\\": "tests/SprykerTest/Zed/Permission/_support/Helper/"
         }
     },
