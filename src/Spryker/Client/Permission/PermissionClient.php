@@ -73,4 +73,16 @@ class PermissionClient extends AbstractClient implements PermissionClientInterfa
             ->createZedPermissionStub()
             ->findMergedRegisteredNonInfrastructuralPermissions();
     }
+
+    /**
+     * {@inheritDoc}
+     *
+     * @api
+     */
+    public function resetPermissionCache(): void
+    {
+        $this->getFactory()
+            ->createPermissionExecutor()
+            ->resetCache();
+    }
 }

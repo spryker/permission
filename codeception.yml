@@ -1,5 +1,6 @@
 namespace: Permission
 include:
+    - tests/SprykerTest/Client/Permission
     - tests/SprykerTest/Zed/Permission
 paths:
     tests: tests

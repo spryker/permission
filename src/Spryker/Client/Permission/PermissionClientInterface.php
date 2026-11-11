@@ -60,4 +60,15 @@ interface PermissionClientInterface
      * @return \Generated\Shared\Transfer\PermissionCollectionTransfer
      */
     public function findMergedRegisteredNonInfrastructuralPermissions(): PermissionCollectionTransfer;
+
+    /**
+     * Specification:
+     * - Empties the per-process cache of the permissions the storage plugins returned, kept per permission key.
+     * - Calls `ResettablePermissionStoragePluginInterface::resetCache()` on every storage plugin that implements it.
+     * - The next `can()` call asks the permission storage plugins again.
+     * - Used when one process serves requests of different subjects, so a later request does not get an earlier subject's permissions.
+     *
+     * @api
+     */
+    public function resetPermissionCache(): void;
 }

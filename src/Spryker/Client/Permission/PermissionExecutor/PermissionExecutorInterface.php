@@ -16,4 +16,6 @@ interface PermissionExecutorInterface
      * @return bool
      */
     public function can($permissionKey, $context = null): bool;
+
+    public function resetCache(): void;
 }

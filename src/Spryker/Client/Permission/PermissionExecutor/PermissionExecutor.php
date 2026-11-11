@@ -11,6 +11,7 @@ use Generated\Shared\Transfer\PermissionCollectionTransfer;
 use Generated\Shared\Transfer\PermissionTransfer;
 use Spryker\Client\Permission\Exception\NotFoundPermissionCollectionTransferCacheException;
 use Spryker\Client\Permission\PermissionFinder\PermissionFinderInterface;
+use Spryker\Client\PermissionExtension\Dependency\Plugin\ResettablePermissionStoragePluginInterface;
 use Spryker\Shared\PermissionExtension\Dependency\Plugin\ExecutablePermissionPluginInterface;
 
 class PermissionExecutor implements PermissionExecutorInterface
@@ -67,6 +68,17 @@ class PermissionExecutor implements PermissionExecutorInterface
         }
 
         return $this->executePermissionCollection($permissionPlugin, $permissionCollectionTransfer, $context);
+    }
+
+    public function resetCache(): void
+    {
+        static::$permissionCollectionTransfersCache = [];
+
+        foreach ($this->permissionStoragePlugins as $permissionStoragePlugin) {
+            if ($permissionStoragePlugin instanceof ResettablePermissionStoragePluginInterface) {
+                $permissionStoragePlugin->resetCache();
+            }
+        }
     }
 
     /**
